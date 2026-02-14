@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>オートエース商会 | 塗装・板金・買取・販売</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* シンプル・かっこいい・明るめ */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Hiragino Sans", sans-serif;
+        background: #f5f5f7;
+        color: #1a1a1a;
+        line-height: 1.5;
+      }
+
+      /* ヘッダー（白ベース） */
+      header {
+        background: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid #e60012;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 900;
+        font-family: "Arial Black", sans-serif;
+      }
+
+      .red {
+        color: #e60012;
+      }
+
+      nav a {
+        color: #333;
+        margin-left: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      nav a:hover {
+        color: #e60012;
+      }
+
+      /* ヒーロースライド（2枚） */
+      .hero {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slides {
+        display: flex;
+        height: 100%;
+        animation: slide 6s infinite;
+      }
+
+      .slide {
+        min-width: 100%;
+        flex-shrink: 0;
+        background-size: cover;
+        background-position: 50% center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        position: relative;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+
+      .slide > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes slide {
+        0%,
+        45% {
+          transform: translateX(0);
+        }
+        50%,
+        95% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .hero h1 {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        font-weight: 900;
+      }
+
+      .hero p {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        background: #e60012;
+        color: white;
+        padding: 14px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: 0.2s;
+        display: inline-block;
+      }
+
+      .btn:hover {
+        background: #b3000f;
+        transform: scale(1.05);
+      }
+
+      /* メインコンテンツ */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 30px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        color: #e60012;
+        margin-bottom: 40px;
+        border-left: 6px solid #e60012;
+        padding-left: 20px;
+      }
+
+      /* サービスグリッド */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 20px;
+        padding: 35px 20px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
+        transition: 0.2s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(230, 0, 18, 0.1);
+        border-color: #e60012;
+      }
+
+      .service-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #e60012;
+      }
+
+      .service-card p {
+        color: #666;
+      }
+
+      /* 会社情報シンプル */
+      .info-box {
+        background: white;
+        border-radius: 30px;
+        padding: 40px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        border: 1px solid #eee;
+      }
+
+      .phone-big {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #e60012;
+        margin: 20px 0;
+      }
+
+      .footer {
+        background: #1a1a1a;
+        color: #ccc;
+        text-align: center;
+        padding: 40px;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          flex-direction: column;
+          gap: 10px;
+        }
+        nav a {
+          margin: 0 10px;
+        }
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">オート<span class="red">エース</span>商会</div>
+      <nav>
+        <a href="#service">サービス</a>
+        <a href="#buy">買取</a>
+        <a href="#company">会社情報</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <!-- ヒーロースライド（2枚）※写真は自分で入れてね -->
+    <div class="hero">
+      <div class="slides">
+        <!-- スライド1：塗装・板金 -->
+        <div
+          class="slide"
+          style="background-image: url(&quot;image/s15.JPG&quot;)"
+        >
+          <h1>塗装・板金</h1>
+          <p>プロの技術で完璧な仕上がり</p>
+          <a class="btn" href="#contact">無料見積もり</a>
+        </div>
+        <!-- スライド2：買取・販売 -->
+        <div
+          class="slide"
+          style="background-image: url(&quot;image/sell.jpg&quot;)"
+        >
+          <h1>買取・販売</h1>
+          <p>今が高値！買取強化中</p>
+          <a class="btn" href="#contact">今すぐ査定</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- サービス（塗装・板金・買取・販売メイン） -->
+    <div class="container" id="service">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="service-card">
+          <h3>🚗 塗装</h3>
+          <p>全塗装・部分塗装・色替え<br />どんな色でも再現します</p>
+        </div>
+        <div class="service-card">
+          <h3>🔧 板金</h3>
+          <p>へこみ修理・サビ取り<br />完璧な形状に戻します</p>
+        </div>
+        <div class="service-card">
+          <h3>💰 買取</h3>
+          <p>高価買取・出張無料<br />廃車もOK</p>
+        </div>
+        <div class="service-card">
+          <h3>🏷️ 販売</h3>
+          <p>厳選した中古車<br />整備済みで安心</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 買取強化エリア -->
+    <div class="container" id="buy">
+      <h2>買取・販売</h2>
+      <div class="info-box" style="text-align: center">
+        <p style="font-size: 1.5rem">✨ 今がチャンス！高値買取実施中 ✨</p>
+        <div class="phone-big">0120-53-9797</div>
+        <p style="font-size: 1.2rem; margin: 20px 0">
+          出張見積・引取無料／代車あり
+        </p>
+        <a class="btn" href="#contact">無料査定はこちら</a>
+      </div>
+    </div>
+
+    <!-- 会社情報シンプル -->
+    <div class="container" id="company">
+      <h2>会社情報</h2>
+      <div class="info-box">
+        <p style="font-size: 1.5rem; font-weight: bold">
+          株式会社 オートエース商会
+        </p>
+        <p>〒243-0037 神奈川県厚木市中依知193-8</p>
+        <p>TEL: 046-281-7702 ｜ FAX: 046-281-7703</p>
+      </div>
+    </div>
+
+    <!-- お問い合わせ -->
+    <div class="container" id="contact">
+      <h2>お問い合わせ</h2>
+      <div class="info-box">
+        <form style="display: flex; flex-direction: column; gap: 15px">
+          <input
+            type="text"
+            placeholder="お名前"
+            style="padding: 15px; border: 1px solid #ccc; border-radius: 10px"
+          />
+          <input
+            type="email"
+            placeholder="メールアドレス"
+            style="padding: 15px; border: 1px solid #ccc; border-radius: 10px"
+          />
+          <input
+            type="tel"
+            placeholder="電話番号"
+            style="padding: 15px; border: 1px solid #ccc; border-radius: 10px"
+          />
+          <textarea
+            rows="4"
+            placeholder="お問い合わせ内容"
+            style="padding: 15px; border: 1px solid #ccc; border-radius: 10px"
+          ></textarea>
+          <button class="btn" style="border: none; cursor: pointer">
+            送信する
+          </button>
+        </form>
+        <p style="text-align: center; margin-top: 30px; font-size: 1.3rem">
+          フリーダイヤル 0120-53-9797
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 オートエース商会</p>
+      <p style="margin-top: 10px">神奈川県厚木市中依知193-8</p>
+    </footer>
+  </body>
+</html>
